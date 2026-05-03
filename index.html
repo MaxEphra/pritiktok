@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Google Fonts Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-     <style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -156,7 +156,7 @@
             gap: 12px;
             flex-shrink: 0;
         }
-        /* Garantia da imagem perfeitamente circular e dentro dos limites */
+        /* Avatar perfeitamente circular */
         .avatar-tiktok img {
             width: 110px;
             height: 110px;
@@ -234,7 +234,7 @@
             color: #ff004f;
         }
 
-        /* Container de botões principal (Vitrine, Seguir, Compartilhar) */
+        /* Container de botões - desktop lado a lado */
         .profile-actions {
             display: flex;
             gap: 16px;
@@ -262,7 +262,8 @@
             transform: scale(1.02);
             box-shadow: 0 8px 18px rgba(255, 0, 79, 0.25);
         }
-        /* ===== MOBILE: botões empilhados, centralizados, Vitrine acima ===== */
+
+        /* ===== MOBILE: botões empilhados, gap generoso, centralizados ===== */
         @media (max-width: 700px) {
             .profile-header {
                 flex-direction: column;
@@ -275,35 +276,24 @@
             .username-tag, .bio-info {
                 justify-content: center;
             }
-            /* Botões em coluna: Vitrine primeiro, depois Seguir e Compartilhar, todos centralizados */
             .profile-actions {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 14px;
+                gap: 20px;          /* gap maior para não colar */
                 width: 100%;
-                margin-top: 10px;
+                margin-top: 16px;
             }
             .profile-actions .btn-seguir {
                 width: auto;
-                min-width: 180px;
+                min-width: 200px;
                 justify-content: center;
-                padding: 12px 24px;
+                padding: 12px 28px;
                 font-size: 1rem;
-            }
-            /* Ordem visual: vitrine primeiro, depois seguir, depois compartilhar */
-            .profile-actions .btn-vitrine {
-                order: 1;
-            }
-            .profile-actions .btn-seguir-action {
-                order: 2;
-            }
-            .profile-actions .btn-share-action {
-                order: 3;
             }
         }
 
-        /* demais seções originais mantidas */
+        /* demais seções (sem alterações no desktop) */
         .section-card {
             background: rgba(255,255,255,0.75);
             border-radius: 2rem;
@@ -496,7 +486,14 @@
             z-index: 1000;
             text-decoration: none;
         }
-        .whatsapp-float:hover { transform: scale(1.08); background-color: #20b859; }
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            background-color: #20b859;
+        }
+        @media (max-width: 480px) {
+            .products-grid { gap: 20px; }
+            .iframe-grid iframe { height: 420px; }
+        }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
